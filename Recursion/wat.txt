@@ -1,0 +1,117 @@
+1. What is recursion?
+Recursion is a programming technique.
+
+2. Why use recursion?
+Recursion aids in situations where the number of time to repeat a function/method is unknown.
+
+3. What are the components of a recursive function/method?
+Conditional check (if/else logic), having a base case or termination statement and a call to itself or a mutually recursive function.
+
+4. How is a recursive statement similar to a while loop?
+The technique allows for the function/method to repeat indefinitely until a base case is satisfied.
+
+5. What happens if a recursive function does not have a base case?
+The function/method will repeat indefinitely resulting in an infinite loop.
+
+6. What are the two forms of recursion?
+Generative, where actions progress/regress until a condition is satisfied.
+Structural, where a problem is broken down into small sub-problems. This is a divide and conquer approach, where a problem is reduced until it becomes easy enough to solve. The solutions are then recombined for a solution to the larger problem.
+
+7. Specific Types of Recursion:
+
+Linear recursion is function/method that makes a single call to its self as the function/method runs.
+
+For Example: 
+If we want to make a function that recursively changes negative numbers to positive numbers
+
+integer MakePostive(integer A){
+            //Recursive call
+            if A < 0
+                        return SignChange(A*-1)
+                       
+            //Termination condition
+            else
+                        return A
+}
+
+Tail Recursion is where the recursive call is at the end of the function/method.
+
+For Example:
+If we want to make a function which recursively counts down.
+
+integer CountDown(integer A){
+            //Termination condition
+            if A <= 0
+                        return 0
+                       
+            //Recursive call
+             else
+                        return CountDown(A-1)
+}
+
+Binary Recursion is a recursive function that calls itself two times or more.
+
+For Example: 
+Fibonacci is the sum of the two previous numbers to find the Nth iteration follow the code below
+
+integer Fibonacci(integer N){
+            //Termination condition
+            if N <= 2
+                        return 1
+ 
+            //Recursive call
+else
+                        return Fibonacci(N-1) + Fibonacci(N-2)
+}
+
+Exponential Recursion is a when a recursive function/method call its self so many times it leads to an exponential growth in the number of calls. This type of recursion is used to generate many copies of itself to work on parts of a large problem. Exponential recursion is very powerful; however, it usually involves complex algorithms. This topic is covered in advanced classes.
+
+Nested Recursion is when a one of the arguments calls is the recursive function is the recursive function itself. The uses of this function can be complex, so look at this if you are curious.
+
+For Example: 
+http://en.wikipedia.org/wiki/Ackermann_function
+
+integer Ackermann(integer M, integer N){
+            //Termination condition
+            if  M == 0 then
+                        return(N+1)
+                       
+            //Recursive call
+            else if N == 0
+                        return Ackermann(M-1, 1)
+           
+            //Nested recursive call
+            else
+                        return Ackermann(M-1, Ackermann(M,N-1))
+}
+
+Mutual Recursion is when a group of functions/methods call one another is a recursive way.
+
+For Example: 
+A simple example is to check if an integer is even or odd. Since, negative numbers are not odd or even then we always return false. These functions will call each other until the base case is reached with the correct solution of even or odd.
+
+boolean isEven (integer N){
+            //Special case termination condition
+            if N < 0 then
+                        return false
+            else
+                        //Termination condition
+                        if N == 0 then
+                                    return true
+                        else
+                                    //Mutual recursive Call
+                                    return isOdd(N-1)
+}
+ 
+boolean isOdd(integer N){
+            //Special case termination condition
+            if N < 0 then
+                        return false
+            else
+                        //Termination condition
+                        if N ==0 then
+                                    return false
+                        else
+                                    //Mutual recursive call
+                                    return isEven(N-1)
+}
