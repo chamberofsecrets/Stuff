@@ -25,24 +25,44 @@ int largest(int n[], int qtd)
                      if (qtd == 1)
                         return n[0];
                     n[0] = 5;
-           l = largest(n, qtd-1); (this is the n[0])
+            now it goes up again... 
+            2
+            3
+            4
+            6
+            5
+            
+            Starting with the "2":
+                    2
             if ( n[qtd-1] > l)
+            if(n[2-1] > l)
+            if(n[1] > l) // n[1] = 9,  l = n[0] = 5
+            9 > 5? YES
+                so,            
                  l = n[qtd-1];
-
-                n[1] > l? ( 9 > 5 ?) YES
-                so
-                l = n[qtd-1](n[1] = 9);
-
-                n[2] > l? (13 > 9?) YES
-                so
-                l = n[2] (13)
-
-                n[3] > l ?  ( 8 > 13?) NO
-                so
-                l = 13
-
-                And so on. It will return 13.
-         */
+                now l = n[1] = 9
+                
+            Now with the "3":
+                    3
+            if ( n[qtd-1] > l)
+            if(n[3-1] > l)
+            if(n[2] > l) // n[2] = 13,  l = n[1] = 9
+            13 > 5? YES
+                so,            
+                 l = n[qtd-1];
+                now l = n[2] = 13
+                
+            Now with the "4":
+                    4
+            if ( n[qtd-1] > l)
+            if(n[4-1] > l)
+            if(n[4] > l) // n[4] = 8,  l = n[2] = 13
+            8 > 13? NO!
+                so,            
+                 l continues to be n[2]
+                 
+                and so on..
+    */
     }
             return l;
 
