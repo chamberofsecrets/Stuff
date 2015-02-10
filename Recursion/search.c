@@ -4,7 +4,7 @@
 int search(int a[], int qtd, int n)
 {
     if (n == a[qtd - 1])
-		return a[qtd-1];
+		return qtd-1;
 	else
 		return search(a, qtd-1, n);
 }
